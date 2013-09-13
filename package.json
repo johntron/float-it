@@ -3,12 +3,14 @@
   "private": true,
   "version": "0.0.1",
   "description": "Float a keg by checking-in",
+  "ssh-login": "ssh pi@johntron.com -p 2222",
   "dependencies": {
     "fermata": "~0.9.6",
     "jugglingdb": "~0.2.0-38",
     "restify": "~2.6.0",
     "commander": "~2.0.0",
-    "engine.io": "~0.7.3"
+    "engine.io": "~0.7.3",
+    "rx": "~2.1.15"
   },
   "scripts": {
     "start": "node server/app.js",
