@@ -1,0 +1,6 @@
+.idea
+.vagrant
+node_modules
+components
+salt/minion.template
+salt/roots/pillar/users/dev.sls.template

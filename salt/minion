@@ -1,0 +1,13 @@
+master: localhost
+file_client: local
+
+grains:
+    env: dev
+
+file_roots:
+  base:
+    - salt/roots/salt
+
+pillar_roots:
+  base:
+    - salt/roots/pillar
