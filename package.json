@@ -5,10 +5,8 @@
   "description": "Float a keg by checking-in",
   "dependencies": {
     "fermata": "~0.9.6",
-    "jugglingdb": "~0.2.0-38",
     "restify": "~2.6.0",
-    "commander": "~2.0.0",
-    "engine.io": "~0.7.3"
+    "commander": "~2.0.0"
   },
   "scripts": {
     "start": "node server/app.js",
