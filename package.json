@@ -6,17 +6,20 @@
   "dependencies": {
     "fermata": "~0.9.6",
     "restify": "~2.6.0",
-    "commander": "~2.0.0"
+    "commander": "~2.0.0",
+    "rx": "~2.1.15"
   },
   "scripts": {
+    "ssh-login": "ssh pi@johntron.com -p 2222",
     "start": "node server/app.js",
     "dev": "node server/app.js --dev",
     "debug": "node debug server/app.js",
     "provision": "sudo salt-call --local -c salt/ state.highstate"
   },
   "main": "server/app.js",
-  "repository": "",
+  "repository": "https://github.com/johntron/float-it.git",
   "author": "John Syrinek",
+  "contributors": ["Christopher Harris"],
   "license": "",
   "directories": {}
 }
