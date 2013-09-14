@@ -28,14 +28,6 @@ var flowStops =
     .throttle(2000)
     .where(function (x) { return x === 'closed'; });
 
-var pourCompleted =
-  Rx.Observable.amb(
-    flowStops
-      .log(' - user stopped pouring'),
-    Rx.Observable.timer(10000)
-      .log(' - pour timed out')
-  );
-
 function greaterThanZero (x) { return x > 0; };
 function decrement (pours) { return pours - 1; };
 
@@ -50,7 +42,13 @@ pendingPours
   .onNextToObserver(solenoidSubject, 255)  // sideEffect
   .waitUntil(flowBegins)
   .log(' - user started pouring')
-  .waitUntil(pourCompleted)
+  .waitUntil(
+    Rx.Observable.amb(
+      flowStops
+        .log(' - user stopped pouring'),
+      Rx.Observable.timer(10000)
+        .log(' - pour timed out')
+    ))
   .log(' - closing solenoid')
   .onNextToObserver(solenoidSubject, 0)  // sideEffect
   .waitUntil(flowStops)
@@ -64,6 +62,6 @@ flowEmulator.subscribe();
 
 pendingPours.onNext(3);
 
-Rx.Observable.timer(3000).subscribe(function (x) {
-  pendingPours.onNext(pendingPours.value + 1);
-});
+// Rx.Observable.timer(3000).subscribe(function (x) {
+//   pendingPours.onNext(pendingPours.value + 1);
+// });
