@@ -53,6 +53,7 @@ pendingPours
   .waitUntil(pourCompleted)
   .log(' - closing solenoid')
   .onNextToObserver(solenoidSubject, 0)  // sideEffect
+  .waitUntil(flowStops)
   .log('pour complete. {{x}} pending pour(s) remain.')
   .delay(5000)
   .observeOn(Rx.Scheduler.timeout)

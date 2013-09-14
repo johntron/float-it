@@ -15,7 +15,7 @@ Rx.GpioSubject = (function () {
           o.onNext(value);
         });
       })
-      .publish().refCount();
+      .replay(null, 1).refCount();
   };
 
   GpioSubject.prototype.onNext = function (value) {
