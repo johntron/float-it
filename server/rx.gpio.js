@@ -1,5 +1,5 @@
 var Rx    = require('rx'),
-    Gpio  = require('./mocks/onoff').Gpio
+    Gpio  = require('./testing/onoff').Gpio
     ;
 
 Rx.GpioSubject = (function () {

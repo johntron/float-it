@@ -1,9 +1,7 @@
 var Rx            = require('rx'),
     Rx            = require('./rx.gpio'),
     Rx            = require('./rx.helpers'),
-    Solenoid      = require('./Solenoid'),
-    FlowMeter     = require('./FlowMeter'),
-    FlowEmulator  = require('./FlowEmulator')
+    FlowEmulator  = require('./testing/FlowEmulator')
     ;
 
 // // These are essentially behavior subjects, but they work against Gpio's
@@ -56,7 +54,7 @@ pendingPours
   .log(' - closing solenoid')
   .onNextToObserver(solenoidSubject, 0)  // sideEffect
   .log('pour complete. {{x}} pending pour(s) remain.')
-  .delay(2000)
+  .delay(5000)
   .observeOn(Rx.Scheduler.timeout)
   .repeat() // magics
   .subscribe();

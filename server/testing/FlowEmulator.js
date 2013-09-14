@@ -1,5 +1,5 @@
 var Rx          = require('rx')
-    Rx          = require('./rx.helpers')
+    Rx          = require('../rx.helpers')
     ;
 
 function identity (x) { return x; }; 
