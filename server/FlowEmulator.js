@@ -1,4 +1,5 @@
 var Rx          = require('rx')
+    Rx          = require('./rx.helpers')
     ;
 
 function identity (x) { return x; }; 
@@ -12,10 +13,9 @@ module.exports = (function () {
     this.subject =
       solenoidSubject
         .distinctUntilChanged()
+        .delay(500)
         .select(mapFunc || identity)
-        .doAction(function (value) {
-            flowMeterSubject.onNext(value);
-        })
+        .onNextToObserver(flowMeterSubject)
         .publish().refCount();
   };
 
