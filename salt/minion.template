@@ -2,7 +2,7 @@ master: localhost
 file_client: local
 
 grains:
-    env: dev
+    env: prod
 
 file_roots:
   base:

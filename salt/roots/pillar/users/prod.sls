@@ -1,3 +1,3 @@
-user: float-it
-group: float-it
-home: /home/float-it
+user: pi
+group: pi
+home: /home/pi
